@@ -12,6 +12,7 @@ import View.MainFrame;
  * @author asus
  */
 public class TestMainFrame {
+
     public static void main(String[] args) {
         MainFrame tampil = new MainFrame();
         tampil.setSize(300, 400);

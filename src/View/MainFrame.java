@@ -20,7 +20,7 @@ public class MainFrame extends JFrame {
     private JMenu fileMenu;
     private JMenuItem exitMenuItem;
 
-    public MainFrame(){
+    public MainFrame() {
         init();
     }
 
@@ -31,12 +31,10 @@ public class MainFrame extends JFrame {
 
         MenuBar.add(fileMenu);
         this.setJMenuBar(MenuBar);
-        
+
         exitMenuItem = new JMenuItem("Exit");
         fileMenu.add(exitMenuItem);
         MenuBar.add(fileMenu);
     }
-
-    
 
 }

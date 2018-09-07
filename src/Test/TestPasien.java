@@ -12,10 +12,11 @@ import View.DaftarAntrianDialog;
  * @author asus
  */
 public class TestPasien {
+
     public static void main(String[] args) {
         DaftarAntrianDialog tampil = new DaftarAntrianDialog();
         tampil.setSize(300, 400);
         tampil.setVisible(true);
-        
+
     }
 }

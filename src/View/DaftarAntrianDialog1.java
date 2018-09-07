@@ -51,8 +51,6 @@ public class DaftarAntrianDialog1 extends JDialog {
         namaText.setBounds(70, 115, 200, 20);
         this.add(namaText);
 
-        
-
         saveButton = new JButton("SIMPAN");
         saveButton.setBounds(90, 200, 100, 30);
         this.add(saveButton);
