@@ -16,5 +16,6 @@ public class TestPasien {
         DaftarAntrianDialog tampil = new DaftarAntrianDialog();
         tampil.setSize(300, 400);
         tampil.setVisible(true);
+        
     }
 }
