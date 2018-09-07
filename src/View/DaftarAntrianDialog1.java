@@ -31,6 +31,7 @@ public class DaftarAntrianDialog1 extends JDialog {
 
     public void init() {
         this.setLayout(null);
+        this.setTitle("Pendaftaran Pasien");
         judulLabel = new JLabel("FORM DAFTAR ANTRIAN");
         judulLabel.setBounds(70, 20, 300, 50);
         this.add(judulLabel);
