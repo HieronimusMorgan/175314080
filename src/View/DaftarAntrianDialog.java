@@ -8,6 +8,7 @@ package View;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -24,6 +25,8 @@ public class DaftarAntrianDialog extends JDialog {
     private JLabel alamat;
     private JTextField noRekamText;
     private JTextField alamatText;
+    private JLabel jenisKelaminLabel;
+    private JRadioButton lelakiRadioButton;
 
     public DaftarAntrianDialog() {
         init();
@@ -59,6 +62,14 @@ public class DaftarAntrianDialog extends JDialog {
         alamatText.setBounds(70, 155, 200, 20);
         this.add(alamatText);
 
+        jenisKelaminLabel = new JLabel("Kelamin");
+        jenisKelaminLabel.setBounds(20, 160, 100, 50);
+        this.add(jenisKelaminLabel);
+        
+        lelakiRadioButton = new JRadioButton("Lelaki");
+        lelakiRadioButton.setBounds(70, 155, 200, 20);
+        this.add(lelakiRadioButton);
+        
         saveButton = new JButton("SIMPAN");
         saveButton.setBounds(100, 200, 100, 30);
         this.add(saveButton);
