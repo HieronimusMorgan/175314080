@@ -6,6 +6,8 @@
 package Test;
 
 import View.MainFrame;
+import java.awt.Color;
+import javax.swing.JFrame;
 
 /**
  *
@@ -17,5 +19,7 @@ public class TestMainFrame {
         MainFrame tampil = new MainFrame();
         tampil.setSize(300, 400);
         tampil.setVisible(true);
+        tampil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }

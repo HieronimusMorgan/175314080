@@ -6,7 +6,6 @@
 package Test;
 
 import View.DaftarAntrianDialog;
-import java.awt.Color;
 
 /**
  *
@@ -16,8 +15,8 @@ public class TestPasien {
 
     public static void main(String[] args) {
         DaftarAntrianDialog tampil = new DaftarAntrianDialog();
-        tampil.setBackground(Color.BLUE);
         tampil.setSize(300, 400);
         tampil.setVisible(true);
+              
     }
 }

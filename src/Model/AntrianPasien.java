@@ -15,7 +15,7 @@ public class AntrianPasien {
 
     private int tanggalAntrian;
     private int bulanAntrian;
-    private ArrayList<Pasien> daftarPasien = new ArrayList<>();
+    private static ArrayList<Pasien> daftarPasien = new ArrayList<>();
     private int AntrianPasien = daftarPasien.size();
 
     /**
@@ -90,17 +90,7 @@ public class AntrianPasien {
         return daftarPasien;
     }
 
-    /**
-     * Membuat method public dengan variable void dan diberi nama setDaftarPasien
-     * dengan parameter ArrayList daftarPasien
-     *
-     * @param daftarPasien
-     */
-    public void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
-        //daftarPasien dari variabel global sama dengan daftarPasien dari variabel lokal
-        this.daftarPasien = daftarPasien;
-    }
-
+  
     /**
      * Mendaftar berfungsi untuk memasukkan data kepada array daftarPasien
      * dimana data array tersebut bersifat dinamis

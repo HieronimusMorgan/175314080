@@ -9,51 +9,70 @@ import Model.AntrianPasien;
 import Model.Pasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JDialog;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import View.MainFrame;
 
 /**
  *
  * @author asus
  */
-public class DaftarAntrianDialog extends JDialog implements ActionListener {
+public class TambahPasienJFrame extends JFrame implements ActionListener {
 
+    private JMenuBar MenuBar;
+    private JMenu fileMenu;
+    private JMenuItem exitMenuItem;
     private JLabel judulLabel;
     private JLabel namaLabel;
     private JTextField namaText;
     private JButton saveButton;
     private JLabel noRekam;
     private JLabel alamat;
-     private JLabel jenisKelamin;
     private JTextField noRekamText;
     private JTextField alamatText;
     AntrianPasien daftar = new AntrianPasien();
     Pasien a = new Pasien();
-    private JTextField Antrian;
-    private JRadioButton Pria;
-    private JRadioButton Perempuan;
-    private ButtonGroup grup;
+    private JMenuItem fileMenuItem;
 
-    public DaftarAntrianDialog() {
+    public TambahPasienJFrame() {
         init();
     }
 
     public void init() {
+
+        MenuBar = new JMenuBar();
+        fileMenu = new JMenu("File");
+
+        MenuBar.add(fileMenu);
+        this.setJMenuBar(MenuBar);
+
+        exitMenuItem = new JMenuItem("Exit");
+        fileMenuItem = new JMenuItem("New");
+
+        fileMenu.add(fileMenuItem);
+        fileMenu.add(exitMenuItem);
+        MenuBar.add(fileMenu);
+
+        exitMenuItem.addActionListener(this);
+
         this.setLayout(null);
-        judulLabel = new JLabel("FORM DAFTAR ANTRIAN");
+        judulLabel = new JLabel("DAFTAR ANTRIAN");
         judulLabel.setBounds(70, 20, 300, 50);
         this.add(judulLabel);
 
-        noRekam = new JLabel("No. RM");
+        noRekam = new JLabel("No.RM");
         noRekam.setBounds(20, 60, 100, 50);
         this.add(noRekam);
 
-        noRekamText = new JTextField(" ");
+        noRekamText = new JTextField();
         noRekamText.setBounds(70, 75, 200, 20);
         this.add(noRekamText);
 
@@ -64,6 +83,8 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         namaText = new JTextField(" ");
         namaText.setBounds(70, 115, 200, 20);
         this.add(namaText);
+        
+        namaText.addActionListener(this);
 
         alamat = new JLabel("Alamat ");
         alamat.setBounds(20, 140, 100, 50);
@@ -72,44 +93,29 @@ public class DaftarAntrianDialog extends JDialog implements ActionListener {
         alamatText = new JTextField(" ");
         alamatText.setBounds(70, 155, 200, 20);
         this.add(alamatText);
+        alamatText.addActionListener(this);
 
         saveButton = new JButton("SIMPAN");
-        saveButton.setBounds(100, 250, 100, 30);
+        saveButton.setBounds(100, 200, 100, 30);
         this.add(saveButton);
         saveButton.addActionListener(this);
-        
-        jenisKelamin = new JLabel("Jenis Kelamin ");
-        jenisKelamin.setBounds(20, 185, 100, 50);
-        this.add(jenisKelamin);
-        
-        Pria = new JRadioButton("Pria",true);
-        Pria.setBounds(120, 200, 50, 20);
-        this.add(Pria);
-        
-        Perempuan = new JRadioButton("Perempuan",false);
-        Perempuan.setBounds(120, 220, 120, 20);
-        this.add(Perempuan);
-        
-        grup= new ButtonGroup();
-        grup.add(Pria);
-        grup.add(Perempuan);
-        
-        
-        Antrian = new JTextField();
-        Antrian.setBounds(100, 295, 100, 30);
-        this.add(Antrian);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == saveButton) {
-            a.setNama(String.valueOf(namaText));
-            a.setAlamat(String.valueOf(alamatText));
-            a.setNoRekamMedis(String.valueOf(noRekamText));
+        if (e.getSource() == exitMenuItem) {
+            System.exit(0);
+        }else if (e.getSource() == namaText) {
+            a.setNama(String.format("nama", namaText));
+        }else if (e.getSource() == saveButton) {
             daftar.Mendaftar(a);
-            JOptionPane.showMessageDialog(null, namaText + "" + alamatText + "" + noRekamText);
+            //System.identityHashCode(MainFrame);
+        }else if (e.getSource()==alamatText) {
+            a.setAlamat(String.format("nama", alamat));
+        }else if (e.getSource()== noRekamText) {
+            a.setNoRekamMedis(String.format("nama", noRekamText));
         }
-
     }
+
 }

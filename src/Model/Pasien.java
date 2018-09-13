@@ -66,14 +66,14 @@ public class Pasien {
      * @param tahunlahir
      * @throws Exception
      */
-    public void setNoRekamMedis(String tahunlahir) throws Exception {
+    public void setNoRekamMedis(String tahunlahir) {
         //Membandingkan jika panjang String tahunlahir lebih dari sama dengan 6
         //maka maka tahunlahir dari variabel global sama dengan tahunlahir dari variabel lokal
         if (tahunlahir.length() >= 6) {
             this.noRekamMedis = tahunlahir;
         } else {
             //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Nomor Rekam Medis Salah"
-            throw new Exception("Nomor Rekam Medis Salah");
+            System.out.println("Nomor Rekam Medis Salah");
         }
     }
 
