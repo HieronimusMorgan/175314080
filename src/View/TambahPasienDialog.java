@@ -82,7 +82,6 @@ public class TambahPasienDialog extends JDialog implements ActionListener {
             daftar.setAlamat(alamat.getText());
             daftar.setNoRekamMedis(noRekamText.getText());
             Pasien.daftarPasien.add(daftar);      
-
         }
     }
 
