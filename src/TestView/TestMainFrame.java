@@ -3,20 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Test;
+package TestView;
 
-import View.DaftarAntrianDialog1;
+import View.MainFrame;
+import javax.swing.JFrame;
 
 /**
  *
  * @author asus
  */
-public class TestPasien1 {
+public class TestMainFrame {
 
     public static void main(String[] args) {
-        DaftarAntrianDialog1 tampil = new DaftarAntrianDialog1();
+        MainFrame tampil = new MainFrame();
         tampil.setSize(300, 400);
         tampil.setVisible(true);
+        tampil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 }

@@ -5,18 +5,52 @@
  */
 package Test;
 
-import View.DaftarAntrianDialog;
+import Model.AntrianPasien;
+import Model.Pasien;
 
 /**
  *
- * @author asus
+ * @author Morgan
  */
 public class TestPasien {
 
     public static void main(String[] args) {
-        DaftarAntrianDialog tampil = new DaftarAntrianDialog();
-        tampil.setSize(300, 400);
-        tampil.setVisible(true);
-              
+        AntrianPasien antrian = new AntrianPasien();
+        try {
+            Pasien  test = new Pasien(
+                    
+                    "20180912", //Nomor Rekam Medis
+                    "Morgan", // Nama Pasien
+                    "Perumahan Kalibagor Indah", // Alamat Pasien
+                    12,  // Tanggal 
+                    9, // Bulan
+                    2018// Tahun
+            
+            );
+            
+            Pasien  test1 = new Pasien(
+                    
+                    "20180825", //Nomor Rekam Medis
+                    "Fredy", // Nama Pasien
+                    "Jln. Kepuh sari no.44", // Alamat Pasien
+                    12,  // Tanggal 
+                    9, // Bulan
+                    2018// Tahun
+            
+            );
+            
+            Pasien.tambahPasienBaru(test1);
+            Pasien.tambahPasienBaru(test);
+            
+            for (int i = 0; i < Pasien.daftarPasien.size(); i++) {
+                System.out.println(Pasien.daftarPasien.get(i).getNama());
+            }
+            
+            System.out.println(test.cariPasien("20180825").getNama());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

@@ -10,26 +10,20 @@ import Model.Pasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import View.MainFrame;
 
 /**
  *
  * @author asus
  */
-public class TambahPasienJFrame extends JFrame implements ActionListener {
+public class TambahAntrianDialog extends JDialog implements ActionListener {
 
-    private JMenuBar MenuBar;
-    private JMenu fileMenu;
-    private JMenuItem exitMenuItem;
     private JLabel judulLabel;
     private JLabel namaLabel;
     private JTextField namaText;
@@ -40,31 +34,15 @@ public class TambahPasienJFrame extends JFrame implements ActionListener {
     private JTextField alamatText;
     AntrianPasien daftar = new AntrianPasien();
     Pasien a = new Pasien();
-    private JMenuItem fileMenuItem;
-
-    public TambahPasienJFrame() {
+   
+    public TambahAntrianDialog() {
         init();
     }
 
     public void init() {
 
-        MenuBar = new JMenuBar();
-        fileMenu = new JMenu("File");
-
-        MenuBar.add(fileMenu);
-        this.setJMenuBar(MenuBar);
-
-        exitMenuItem = new JMenuItem("Exit");
-        fileMenuItem = new JMenuItem("New");
-
-        fileMenu.add(fileMenuItem);
-        fileMenu.add(exitMenuItem);
-        MenuBar.add(fileMenu);
-
-        exitMenuItem.addActionListener(this);
-
         this.setLayout(null);
-        judulLabel = new JLabel("DAFTAR ANTRIAN");
+        judulLabel = new JLabel("Form Tambah Antrian");
         judulLabel.setBounds(70, 20, 300, 50);
         this.add(judulLabel);
 
@@ -95,7 +73,7 @@ public class TambahPasienJFrame extends JFrame implements ActionListener {
         this.add(alamatText);
         alamatText.addActionListener(this);
 
-        saveButton = new JButton("SIMPAN");
+        saveButton = new JButton("Cari");
         saveButton.setBounds(100, 200, 100, 30);
         this.add(saveButton);
         saveButton.addActionListener(this);
@@ -104,17 +82,10 @@ public class TambahPasienJFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == exitMenuItem) {
-            System.exit(0);
-        }else if (e.getSource() == namaText) {
-            a.setNama(String.format("nama", namaText));
-        }else if (e.getSource() == saveButton) {
-            daftar.Mendaftar(a);
-            //System.identityHashCode(MainFrame);
-        }else if (e.getSource()==alamatText) {
-            a.setAlamat(String.format("nama", alamat));
-        }else if (e.getSource()== noRekamText) {
-            a.setNoRekamMedis(String.format("nama", noRekamText));
+        if (e.getSource() == saveButton) {
+           Pasien a = new Pasien();
+           namaText.setText(a.cariPasien(noRekamText.getText()).getNama());
+           alamatText.setText(a.cariPasien(noRekamText.getText()).getAlamat());
         }
     }
 

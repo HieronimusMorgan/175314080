@@ -6,7 +6,9 @@
 package Model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +23,7 @@ public class Pasien {
     private int tanggalLahir;
     private int bulanLahir;
     private int tahunLahir;
+    public static ArrayList<Pasien> daftarPasien = new ArrayList<>();
 
     /**
      * Membuat Constructor kosong dengan nama Pasien
@@ -73,7 +76,8 @@ public class Pasien {
             this.noRekamMedis = tahunlahir;
         } else {
             //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Nomor Rekam Medis Salah"
-            System.out.println("Nomor Rekam Medis Salah");
+            JOptionPane.showMessageDialog(null, "No Rekam Medis Salah");
+            //System.out.println("No Rekam Medis Salah");
         }
     }
 
@@ -253,6 +257,26 @@ public class Pasien {
         SimpleDateFormat ft = new SimpleDateFormat("yyyyMMdd");
         nomorRekamMedis = ft.format(date) + nama.substring(0, 3);
         return nomorRekamMedis;
+    }
+
+    /**
+     * Digunakan untuk menampung seluruh Pasien baru
+     *
+     * @param pasien
+     */
+    public static void tambahPasienBaru(Pasien pasien) {
+        daftarPasien.add(pasien);
+    }
+
+    public static Pasien cariPasien(String norekam) {
+       
+        for (int i = 0; i < daftarPasien.size(); i++) {
+            if (norekam == daftarPasien.get(i).getNoRekamMedis()) {
+               return daftarPasien.get(i);
+            } 
+        }
+
+        return null;
     }
 
 }
