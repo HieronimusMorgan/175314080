@@ -11,11 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -32,7 +29,6 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
     private JLabel alamat;
     private JTextField noRekamText;
     private JTextField alamatText;
-    AntrianPasien daftar = new AntrianPasien();
     Pasien a = new Pasien();
    
     public TambahAntrianDialog() {
@@ -72,20 +68,18 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
         alamatText.setBounds(70, 155, 200, 20);
         this.add(alamatText);
         alamatText.addActionListener(this);
+        noRekamText.addActionListener(this);
 
-        saveButton = new JButton("Cari");
-        saveButton.setBounds(100, 200, 100, 30);
-        this.add(saveButton);
-        saveButton.addActionListener(this);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == saveButton) {
-           Pasien a = new Pasien();
-           namaText.setText(a.cariPasien(noRekamText.getText()).getNama());
-           alamatText.setText(a.cariPasien(noRekamText.getText()).getAlamat());
+        if (e.getSource() == noRekamText) {           
+           String nama = Pasien.cariPasien(noRekamText.getText()).getNama();
+           String alamata = Pasien.cariPasien(noRekamText.getText()).getAlamat();
+           namaText.setText(nama);
+           alamatText.setText(alamata);
         }
     }
 

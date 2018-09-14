@@ -8,7 +8,6 @@ package Model;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Pasien {
     private int tanggalLahir;
     private int bulanLahir;
     private int tahunLahir;
-    public static ArrayList<Pasien> daftarPasien = new ArrayList<>();
+    public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
 
     /**
      * Membuat Constructor kosong dengan nama Pasien
@@ -63,22 +62,12 @@ public class Pasien {
 
     /**
      * Membuat method public dengan variable void dan diberi nama
-     * setNoRekamMedis dengan parameter String tahunlahir dengan menggunakan
-     * throws Exception
+     * setNoRekamMedis dengan parameter String tahunlahir
      *
      * @param tahunlahir
-     * @throws Exception
      */
     public void setNoRekamMedis(String tahunlahir) {
-        //Membandingkan jika panjang String tahunlahir lebih dari sama dengan 6
-        //maka maka tahunlahir dari variabel global sama dengan tahunlahir dari variabel lokal
-        if (tahunlahir.length() >= 6) {
-            this.noRekamMedis = tahunlahir;
-        } else {
-            //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Nomor Rekam Medis Salah"
-            JOptionPane.showMessageDialog(null, "No Rekam Medis Salah");
-            //System.out.println("No Rekam Medis Salah");
-        }
+        this.noRekamMedis = tahunlahir;
     }
 
     /**
@@ -269,13 +258,13 @@ public class Pasien {
     }
 
     public static Pasien cariPasien(String norekam) {
-       
-        for (int i = 0; i < daftarPasien.size(); i++) {
-            if (norekam == daftarPasien.get(i).getNoRekamMedis()) {
-               return daftarPasien.get(i);
-            } 
-        }
 
+        for (int i = 0; i < daftarPasien.size(); i++) {
+            if (norekam == null ? daftarPasien.get(i).getNoRekamMedis() == null 
+                    : norekam.equals(daftarPasien.get(i).getNoRekamMedis())) {
+                return daftarPasien.get(i);
+            }
+        }
         return null;
     }
 

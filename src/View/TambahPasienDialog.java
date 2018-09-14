@@ -5,14 +5,15 @@
  */
 package View;
 
-import Model.AntrianPasien;
 import Model.Pasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
@@ -29,6 +30,10 @@ public class TambahPasienDialog extends JDialog implements ActionListener {
     private JLabel alamat;
     private JTextField noRekamText;
     private JTextField alamatText;
+    private JLabel jenisKelamin;
+    private JRadioButton Pria;
+    private JRadioButton Perempuan;
+    private ButtonGroup grup;
 
     public TambahPasienDialog() {
         init();
@@ -66,9 +71,24 @@ public class TambahPasienDialog extends JDialog implements ActionListener {
         alamatText.setBounds(70, 155, 200, 20);
         this.add(alamatText);
         alamatText.addActionListener(this);
+        jenisKelamin = new JLabel("Jenis Kelamin ");
+        jenisKelamin.setBounds(20, 185, 100, 50);
+        this.add(jenisKelamin);
+
+        Pria = new JRadioButton("Pria", true);
+        Pria.setBounds(120, 200, 50, 20);
+        this.add(Pria);
+
+        Perempuan = new JRadioButton("Perempuan", false);
+        Perempuan.setBounds(120, 220, 120, 20);
+        this.add(Perempuan);
+
+        grup = new ButtonGroup();
+        grup.add(Pria);
+        grup.add(Perempuan);
 
         saveButton = new JButton("SIMPAN");
-        saveButton.setBounds(100, 200, 100, 30);
+        saveButton.setBounds(100, 250, 100, 30);
         this.add(saveButton);
         saveButton.addActionListener(this);
 
@@ -79,9 +99,11 @@ public class TambahPasienDialog extends JDialog implements ActionListener {
         if (e.getSource() == saveButton) {
             Pasien daftar = new Pasien();
             daftar.setNama(namaText.getText());
-            daftar.setAlamat(alamat.getText());
+            daftar.setAlamat(alamatText.getText());
             daftar.setNoRekamMedis(noRekamText.getText());
-            Pasien.daftarPasien.add(daftar);      
+            Pasien.tambahPasienBaru(daftar);
+            JOptionPane.showMessageDialog(null, "Anda Terdaftar !");
+            this.dispose();
         }
     }
 
