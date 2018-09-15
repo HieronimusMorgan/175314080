@@ -8,20 +8,13 @@ package View;
 import Model.Pasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
  * @author asus
  */
-public class TambahPasienDialog extends JDialog implements ActionListener {
+public class TambahPasienBaruDialog extends JDialog implements ActionListener {
 
     private JLabel judulLabel;
     private JLabel namaLabel;
@@ -50,7 +43,7 @@ public class TambahPasienDialog extends JDialog implements ActionListener {
     private String tahunArray[] = {"1990", "1991", "1992", "1993", "1994", "1995",
         "1996", "1997", "1998", "1999", "2000"};
 
-    public TambahPasienDialog() {
+    public TambahPasienBaruDialog() {
         init();
     }
 

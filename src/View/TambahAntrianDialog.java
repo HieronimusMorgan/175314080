@@ -8,11 +8,7 @@ package View;
 import Model.Pasien;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 /**
  *
@@ -28,10 +24,16 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
     private JTextField noRekamText;
     private JTextField alamatText;
 
+    /**
+     * Membuat Constructor kosong
+     */
     public TambahAntrianDialog() {
         init();
     }
 
+    /**
+     * Membuat method init untuk menampilkan data
+     */
     public void init() {
 
         this.setLayout(null);
@@ -97,12 +99,12 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
             //jika tidak maka akan menampilkan Message Dialog 
             //"Data Tidak Tersedia"
             if (Pasien.cariPasien(noRekamText.getText()) != null) {
-                String nama = Pasien.cariPasien(noRekamText.getText()).getNama();
-                String alamata = Pasien.cariPasien(noRekamText.getText()).getAlamat();
-                namaText.setText(nama);
-                alamatText.setText(alamata);
+                //namaText menambahkan Text dengan nama dari Pasien yang dicari
+                namaText.setText(Pasien.cariPasien(noRekamText.getText()).getNama());
+                //alamatText menambahkan Text dengan nama dari Pasien yang dicari
+                alamatText.setText(Pasien.cariPasien(noRekamText.getText()).getAlamat());
             } else {
-                JOptionPane.showMessageDialog(null, "Data Tidak Tersedia");
+                JOptionPane.showMessageDialog(null, "Nomor Rekam Medis : "+noRekamText.getText()+" Tidak Tersedia");
             }
         }
     }

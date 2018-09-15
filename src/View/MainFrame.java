@@ -7,10 +7,8 @@ package View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.*;
+
 
 /**
  *
@@ -60,7 +58,7 @@ public class MainFrame extends JFrame implements ActionListener {
         }
         // Jika klik TambahPasien maka akan menampilkan tampilan TambahPasienDialog
         if (e.getSource() == TambahPasien) {
-            TambahPasienDialog tampil = new TambahPasienDialog();
+            TambahPasienBaruDialog tampil = new TambahPasienBaruDialog();
             tampil.setSize(400, 500);
             tampil.setVisible(true);
         }
