@@ -34,12 +34,12 @@ public class Pasien {
     /**
      * Membuat Constructor dengan parameter
      *
-     * @param nomorrekammedis
-     * @param nama
-     * @param alamat
-     * @param tanggalLahir
-     * @param bulanLahir
-     * @param tahunLahir
+     * @param nomorrekammedis String
+     * @param nama String
+     * @param alamat String
+     * @param tanggalLahir int
+     * @param bulanLahir int
+     * @param tahunLahir int
      */
     public Pasien(String nomorrekammedis, String nama, String alamat,
             int tanggalLahir, int bulanLahir, int tahunLahir) {
@@ -67,11 +67,11 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama
      * setNoRekamMedis dengan parameter String tahunlahir
      *
-     * @param tahunlahir
+     * @param noRekamMedis String
      */
-    public void setNoRekamMedis(String tahunlahir) {
+    public void setNoRekamMedis(String noRekamMedis) {
         //noRekamMedis dari variabel global sama dengan noRekamMedis dari variabel lokal
-        this.noRekamMedis = tahunlahir;
+        this.noRekamMedis = noRekamMedis;
     }
 
     /**
@@ -88,7 +88,7 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama setNama dengan
      * parameter String nama
      *
-     * @param nama
+     * @param nama String
      */
     public void setNama(String nama) {
         //nama dari variabel global sama dengan nama dari variabel lokal
@@ -109,7 +109,7 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama setAlamat
      * dengan parameter String alamat
      *
-     * @param alamat
+     * @param alamat String
      */
     public void setAlamat(String alamat) {
         //alamat dari variabel global sama dengan alamat dari variabel lokal
@@ -131,7 +131,7 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama setTempatLahir
      * dengan parameter String tempatLahir
      *
-     * @param tempatLahir
+     * @param tempatLahir String
      */
     public void setTempatLahir(String tempatLahir) {
         //tempatLahir dari variabel global sama dengan tempatLahir dari variabel lokal
@@ -154,8 +154,8 @@ public class Pasien {
      * setTanggalLahir dengan parameter int tanggalLahir menggunakan throws
      * Exception
      *
-     * @param tanggalLahir
-     *
+     * @param tanggalLahir int
+     * 
      */
     public void setTanggalLahir(int tanggalLahir) {
         //Membandingkan jika tanggalLahir lebih dari 0 maka memasuki perbandingan
@@ -179,7 +179,7 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama setBulanLahir
      * dengan parameter int bulanLahir,
      *
-     * @param bulanLahir
+     * @param bulanLahir int
      *
      */
     public void setBulanLahir(int bulanLahir) {
@@ -202,7 +202,7 @@ public class Pasien {
      * Membuat method public dengan variable void dan diberi nama setTahunLahir
      * dengan parameter int tahunLahir,
      *
-     * @param tahunLahir
+     * @param tahunLahir int
      *
      */
     public void setTahunLahir(int tahunLahir) {
@@ -230,7 +230,7 @@ public class Pasien {
      * Digunakan untuk menampung seluruh Pasien yang baru mendaftar dengan
      * menambahnya di ArrayList daftarPasien yang berisi pasien
      *
-     * @param pasien
+     * @param pasien Pasien
      */
     public static void tambahPasienBaru(Pasien pasien) {
         daftarPasien.add(pasien);
@@ -242,8 +242,8 @@ public class Pasien {
      * daftarPasien yang memiliki NoRekamMedis yang sama lalu di return
      * daftarPasien.get(i)
      *
-     * @param norekam
-     * @return return daftarPasien.get(i)
+     * @param norekam String
+     * @return daftarPasien.get(i)
      */
     public static Pasien cariPasien(String norekam) {
         for (int i = 0; i < daftarPasien.size(); i++) {

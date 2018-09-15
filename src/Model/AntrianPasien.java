@@ -27,8 +27,8 @@ public class AntrianPasien {
     /**
      * Membuat Constructor dengan parameter
      *
-     * @param tanggalAntrian
-     * @param bulanAntrian
+     * @param tanggalAntrian int
+     * @param bulanAntrian int
      */
     public AntrianPasien(int tanggalAntrian, int bulanAntrian) {
         this.tanggalAntrian = tanggalAntrian;
@@ -50,7 +50,7 @@ public class AntrianPasien {
      * Membuat method public dengan variable void dan diberi nama
      * setTanggalAntrian dengan parameter int tanggalAntrian
      *
-     * @param tanggalAntrian
+     * @param tanggalAntrian int
      */
     public void setTanggalAntrian(int tanggalAntrian) {
         //tanggalAntrian dari variabel global sama dengan tanggalAntrian dari variabel lokal
@@ -72,7 +72,7 @@ public class AntrianPasien {
      * Membuat method public dengan variable void dan diberi nama bulanAntrian
      * dengan parameter int bulanAntrian
      *
-     * @param bulanAntrian
+     * @param bulanAntrian int
      */
     public void setBulanAntrian(int bulanAntrian) {
         //bulanAntrian dari variabel global sama dengan bulanAntrian dari variabel lokal
@@ -94,7 +94,7 @@ public class AntrianPasien {
      * Mendaftar berfungsi untuk memasukkan data kepada array daftarPasien
      * dimana data array tersebut bersifat dinamis
      *
-     * @param pasien
+     * @param pasien Pasien
      */
     public void Mendaftar(Pasien pasien) {
         //daftarPasien memasukkan data array dengan add pasien
@@ -105,7 +105,7 @@ public class AntrianPasien {
      * PanggilPasien berfungsi memanggi pasien dimana Pasien dipanggil satu
      * persatu melalui nomorPanggil
      *
-     * @param nomorPanggil
+     * @param nomorPanggil int
      * @return daftarPasien.get(nomorPanggil)
      */
     public Pasien PanggilPasein(int nomorPanggil) {

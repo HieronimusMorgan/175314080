@@ -88,7 +88,7 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
      * kelas ActionListener dengan membuat method actionPerformed dengan
      * parameter e bertipe data ActionEvent
      *
-     * @param e
+     * @param e ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent e) {

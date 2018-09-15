@@ -24,8 +24,8 @@ public class Klinik {
     /**
      * Membuat Constructor dengan parameter
      *
-     * @param idKlinik
-     * @param nama
+     * @param idKlinik String
+     * @param nama String
      */
     public Klinik(String idKlinik, String nama) {
         this.idKlinik = idKlinik;
@@ -47,7 +47,7 @@ public class Klinik {
      * Membuat method public dengan variable void dan diberi nama setIdKlinik
      * dengan parameter String idKlinik
      *
-     * @param idKlinik
+     * @param idKlinik String
      */
     public void setIdKlinik(String idKlinik) {
         //idKlinik dari variabel global sama dengan idKlinik dari variabel lokal
@@ -68,7 +68,7 @@ public class Klinik {
      * Membuat method public dengan variable void dan diberi nama setNama dengan
      * parameter String nama
      *
-     * @param nama
+     * @param nama String
      */
     public void setNama(String nama) {
         //nama dari variabel global sama dengan nama dari variabel lokal
