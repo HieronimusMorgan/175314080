@@ -23,6 +23,7 @@ public class Dokter {
      * Membuat Constructor kosong dengan nama Dokter
      */
     public Dokter() {
+
     }
 
     /**
@@ -50,7 +51,7 @@ public class Dokter {
      * Membuat method public dengan variable String dan diberi nama
      * getNomorPegawai()
      *
-     * @return
+     * @return nomorPegawai + nama.substring(0, 3)
      */
     public String getNomorPegawai() {
         //Pengembalian nomorPegawai kepada method pemanggil getNomorPegawai() 
@@ -80,7 +81,7 @@ public class Dokter {
     /**
      * Membuat method public dengan variable String dan diberi nama getNama()
      *
-     * @return
+     * @return nama
      */
     public String getNama() {
         //Pengembalian nama kepada method getNama()
@@ -101,7 +102,7 @@ public class Dokter {
     /**
      * Membuat method public dengan variable String dan diberi nama getAlamat()
      *
-     * @return
+     * @return alamat
      */
     public String getAlamat() {
         //Pengembalian alamat kepada method getAlamat()
@@ -123,7 +124,7 @@ public class Dokter {
      * Membuat method public dengan variable String dan diberi nama
      * getTempatLahir()
      *
-     * @return
+     * @return tempatLahir
      */
     public String getTempatLahir() {
         //Pengembalian tempatLahir kepada method getTempatLahir()
@@ -145,7 +146,7 @@ public class Dokter {
      * Membuat method public dengan variable int dan diberi nama
      * getTanggalLahir()
      *
-     * @return
+     * @return tanggalLahir
      */
     public int getTanggalLahir() {
         //Pengembalian tanggalLahir kepada method getTanggalLahir()
@@ -180,7 +181,7 @@ public class Dokter {
     /**
      * Membuat method public dengan variable int dan diberi nama getBulanLahir()
      *
-     * @return
+     * @return bulanLahir
      */
     public int getBulanLahir() {
         //Pengembalian alamat kepada method bulanLahir()
@@ -215,7 +216,7 @@ public class Dokter {
     /**
      * Membuat method public dengan variable int dan diberi nama getTahunLahir()
      *
-     * @return
+     * @return tahunLahir
      */
     public int getTahunLahir() {
         //Pengembalian alamat kepada method getTahunLahir()

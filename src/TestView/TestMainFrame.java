@@ -16,9 +16,10 @@ public class TestMainFrame {
 
     public static void main(String[] args) {
         MainFrame tampil = new MainFrame();
-        tampil.setSize(300, 400);
+        //Mengatur ukuran panel sebesar 400 dan 500
+        tampil.setSize(400, 500);        
         tampil.setVisible(true);
+        //Jika mengeklik tanda silang maka secara otomatis program akan berhenti
         tampil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
     }
 }

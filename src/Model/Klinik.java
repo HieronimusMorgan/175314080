@@ -18,6 +18,7 @@ public class Klinik {
      * Membuat Constructor kosong pada kelas AntrianPasien
      */
     public Klinik() {
+
     }
 
     /**
@@ -35,7 +36,7 @@ public class Klinik {
      * Membuat method public dengan variable String dan diberi nama
      * getIdKlinik()
      *
-     * @return
+     * @return idKlinik
      */
     public String getIdKlinik() {
         //Pengembalian idKlinik kepada method pemanggil getIdKlinik()
@@ -56,7 +57,7 @@ public class Klinik {
     /**
      * Membuat method public dengan variable String dan diberi nama getNama()
      *
-     * @return
+     * @return nama
      */
     public String getNama() {
         //Pengembalian nama kepada method getNama()

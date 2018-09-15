@@ -16,12 +16,12 @@ public class AntrianPasien {
     private int tanggalAntrian;
     private int bulanAntrian;
     private static ArrayList<Pasien> daftarPasien = new ArrayList<>();
-    private int AntrianPasien = daftarPasien.size();
 
     /**
      * Membuat Constructor kosong
      */
     public AntrianPasien() {
+
     }
 
     /**
@@ -39,7 +39,7 @@ public class AntrianPasien {
      * Membuat method public dengan variable int dan diberi nama
      * getTanggalAntrian()
      *
-     * @return
+     * @return tanggalAntrian
      */
     public int getTanggalAntrian() {
         //Pengembalian tanggalAntrian kepada method pemanggil getTanggalAntrian()
@@ -61,7 +61,7 @@ public class AntrianPasien {
      * Membuat method public dengan variable int dan diberi nama
      * getBulanAntrian()
      *
-     * @return
+     * @return bulanAntrian
      */
     public int getBulanAntrian() {
         //Pengembalian bulanAntrian kepada method pemanggil getBulanAntrian()
@@ -83,14 +83,13 @@ public class AntrianPasien {
      * Membuat method public dengan variable ArrayList dan diberi nama
      * getDaftarPasien()
      *
-     * @return
+     * @return daftarPasien
      */
     public ArrayList<Pasien> getDaftarPasien() {
         //Pengembalian daftarPasien kepada method pemanggil getDaftarPasien()
         return daftarPasien;
     }
 
-  
     /**
      * Mendaftar berfungsi untuk memasukkan data kepada array daftarPasien
      * dimana data array tersebut bersifat dinamis
@@ -107,14 +106,11 @@ public class AntrianPasien {
      * persatu melalui nomorPanggil
      *
      * @param nomorPanggil
-     * @return
+     * @return daftarPasien.get(nomorPanggil)
      */
     public Pasien PanggilPasein(int nomorPanggil) {
         //Pengembalian daftarPasien yang memanggi data ke nomorPanggil
         return daftarPasien.get(nomorPanggil);
     }
-
-    
-    
 
 }

@@ -28,6 +28,7 @@ public class Pasien {
      * Membuat Constructor kosong dengan nama Pasien
      */
     public Pasien() {
+
     }
 
     /**
@@ -40,12 +41,13 @@ public class Pasien {
      * @param bulanLahir
      * @param tahunLahir
      */
-    public Pasien(String nomorrekammedis, String nama, String alamat, int tanggalLahir, int bulanLahir, int tahunLahir) {
+    public Pasien(String nomorrekammedis, String nama, String alamat,
+            int tanggalLahir, int bulanLahir, int tahunLahir) {
+        //variabel global sama dengan dari variabel lokal
         this.noRekamMedis = nomorrekammedis;
         this.nama = nama;
         this.alamat = alamat;
         this.tanggalLahir = tanggalLahir;
-
         this.bulanLahir = bulanLahir;
         this.tahunLahir = tahunLahir;
     }
@@ -54,9 +56,10 @@ public class Pasien {
      * Membuat method public dengan variable String dan diberi nama
      * getNoRekamMedis()
      *
-     * @return
+     * @return noRekamMedis
      */
     public String getNoRekamMedis() {
+        //Pengembalian nama kepada method getNama()
         return noRekamMedis;
     }
 
@@ -67,13 +70,14 @@ public class Pasien {
      * @param tahunlahir
      */
     public void setNoRekamMedis(String tahunlahir) {
+        //noRekamMedis dari variabel global sama dengan noRekamMedis dari variabel lokal
         this.noRekamMedis = tahunlahir;
     }
 
     /**
      * Membuat method public dengan variable String dan diberi nama getNama()
      *
-     * @return
+     * @return nama
      */
     public String getNama() {
         //Pengembalian nama kepada method getNama()
@@ -94,7 +98,7 @@ public class Pasien {
     /**
      * Membuat method public dengan variable String dan diberi nama getAlamat()
      *
-     * @return
+     * @return alamat
      */
     public String getAlamat() {
         //Pengembalian alamat kepada method getAlamat()
@@ -116,7 +120,7 @@ public class Pasien {
      * Membuat method public dengan variable String dan diberi nama
      * getTempatLahir()
      *
-     * @return
+     * @return tempatLahir
      */
     public String getTempatLahir() {
         //Pengembalian tempatLahir kepada method getTempatLahir()
@@ -138,7 +142,7 @@ public class Pasien {
      * Membuat method public dengan variable int dan diberi nama
      * getTanggalLahir()
      *
-     * @return
+     * @return tanggalLahir
      */
     public int getTanggalLahir() {
         //Pengembalian tanggalLahir kepada method getTanggalLahir()
@@ -151,30 +155,20 @@ public class Pasien {
      * Exception
      *
      * @param tanggalLahir
-     * @throws Exception
+     *
      */
-    public void setTanggalLahir(int tanggalLahir) throws Exception {
+    public void setTanggalLahir(int tanggalLahir) {
         //Membandingkan jika tanggalLahir lebih dari 0 maka memasuki perbandingan
         //selanjutnya dengan membandingka jika tanggalLahir kurang dari sama dengan 31
         //maka tanggalLahir dari variabel global sama dengan tanggalLahir dari variabel lokal
-        if (tanggalLahir > 0) {
-            if (tanggalLahir <= 31) {
-                this.tanggalLahir = tanggalLahir;
-            } else {
-                //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Tanggal Lahir Salah"
-                throw new Exception("Tanggal Lahir Salah");
-            }
-        } else {
-            //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Tanggal Lahir Salah"
-            throw new Exception("Tanggal Lahir Salah");
-        }
+        this.tanggalLahir = tanggalLahir;
 
     }
 
     /**
      * Membuat method public dengan variable int dan diberi nama getBulanLahir()
      *
-     * @return
+     * @return bulanLahir
      */
     public int getBulanLahir() {
         //Pengembalian alamat kepada method bulanLahir()
@@ -183,32 +177,21 @@ public class Pasien {
 
     /**
      * Membuat method public dengan variable void dan diberi nama setBulanLahir
-     * dengan parameter int bulanLahir, menggunakan throws Exception
+     * dengan parameter int bulanLahir,
      *
      * @param bulanLahir
-     * @throws Exception
+     *
      */
-    public void setBulanLahir(int bulanLahir) throws Exception {
-        //Membandingkan jika bulanLahir lebih dari 0 maka memasuki perbandingan
-        //selanjutnya dengan membandingka jika bulanLahir kurang dari sama dengan 12
-        //maka bulanLahir dari variabel global sama dengan tanggalLahir dari variabel lokal
-        if (bulanLahir > 0) {
-            if (bulanLahir <= 12) {
-                this.bulanLahir = bulanLahir;
-            } else {
-                //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Bulan Lahir Salah"
-                throw new Exception("Bulan Lahir Salah");
-            }
-        } else {
-            //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Bulan Lahir Salah"
-            throw new Exception("Bulan Lahir Salah");
-        }
+    public void setBulanLahir(int bulanLahir) {
+        //bulanLahir dari variabel global sama dengan bulanLahir dari variabel lokal
+        this.bulanLahir = bulanLahir;
+
     }
 
     /**
      * Membuat method public dengan variable int dan diberi nama getTahunLahir()
      *
-     * @return
+     * @return tahunLahir
      */
     public int getTahunLahir() {
         //Pengembalian alamat kepada method getTahunLahir()
@@ -217,20 +200,15 @@ public class Pasien {
 
     /**
      * Membuat method public dengan variable void dan diberi nama setTahunLahir
-     * dengan parameter int tahunLahir, menggunakan throws Exception
+     * dengan parameter int tahunLahir,
      *
      * @param tahunLahir
-     * @throws Exception
+     *
      */
-    public void setTahunLahir(int tahunLahir) throws Exception {
-        //Membandingkan jika bulanLahir lebih dari 0 maka
+    public void setTahunLahir(int tahunLahir) {
         //tahunLahir dari variabel global sama dengan tahunLahir dari variabel lokal
-        if (tahunLahir > 0) {
-            this.tahunLahir = tahunLahir;
-        } else {
-            //Jika tidak memenuhi kriteria tersebut maka akan mencetak "Tahun Lahir Salah"
-            throw new Exception("Tahun Lahir Salah");
-        }
+        this.tahunLahir = tahunLahir;
+
     }
 
     /**
@@ -238,7 +216,7 @@ public class Pasien {
      * SimpleDateFormat dan Date dimana menginput tanggal dengan format yyyyMMdd
      * serta tambahan substring nama dengan 3 huruf depan
      *
-     * @return
+     * @return nomorRekamMedis
      */
     public String BuatRekamMedis() {
         String nomorRekamMedis;
@@ -249,7 +227,8 @@ public class Pasien {
     }
 
     /**
-     * Digunakan untuk menampung seluruh Pasien baru
+     * Digunakan untuk menampung seluruh Pasien yang baru mendaftar dengan
+     * menambahnya di ArrayList daftarPasien yang berisi pasien
      *
      * @param pasien
      */
@@ -257,14 +236,25 @@ public class Pasien {
         daftarPasien.add(pasien);
     }
 
+    /**
+     * Digunakan untuk mencari daftar pasien melalui Nomor Rekam Medis, sehingga
+     * saat dimasuukan statment tersebut maka secara otomatis akan mencari
+     * daftarPasien yang memiliki NoRekamMedis yang sama lalu di return
+     * daftarPasien.get(i)
+     *
+     * @param norekam
+     * @return return daftarPasien.get(i)
+     */
     public static Pasien cariPasien(String norekam) {
-
         for (int i = 0; i < daftarPasien.size(); i++) {
-            if (norekam == null ? daftarPasien.get(i).getNoRekamMedis() == null 
+            // jika norekam = daftarPasien yang memanggil fetNoRekamMedis maka
+            // daftarPasien.get(i) akan direturn ke method cariPasien
+            if (norekam == null ? daftarPasien.get(i).getNoRekamMedis() == null
                     : norekam.equals(daftarPasien.get(i).getNoRekamMedis())) {
                 return daftarPasien.get(i);
             }
         }
+        //Jika data tidak ditemukan maka akan direturn null
         return null;
     }
 
