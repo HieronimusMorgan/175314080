@@ -178,6 +178,7 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener {
             daftar.setNama(namaText.getText());
             daftar.setAlamat(alamatText.getText());
             daftar.setNoRekamMedis(noRekamText.getText());
+           
             Pasien.tambahPasienBaru(daftar);
             JOptionPane.showMessageDialog(null, namaText.getText() + "\nAnda Terdaftar");
             this.dispose();
