@@ -19,10 +19,11 @@ public class Pasien {
     private String nama;
     private String alamat;
     private String tempatLahir;
+    private String nik;
     private int tanggalLahir;
     private int bulanLahir;
     private int tahunLahir;
-    public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
+    public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
 
     /**
      * Membuat Constructor kosong dengan nama Pasien
@@ -41,12 +42,12 @@ public class Pasien {
      * @param bulanLahir int
      * @param tahunLahir int
      */
-    public Pasien(String nomorrekammedis, String nama, String alamat,
+    public Pasien(String nomorrekammedis, String nama, String alamat, 
             int tanggalLahir, int bulanLahir, int tahunLahir) {
         //variabel global sama dengan dari variabel lokal
         this.noRekamMedis = nomorrekammedis;
         this.nama = nama;
-        this.alamat = alamat;
+        this.alamat = alamat;        
         this.tanggalLahir = tanggalLahir;
         this.bulanLahir = bulanLahir;
         this.tahunLahir = tahunLahir;
@@ -139,6 +140,27 @@ public class Pasien {
     }
 
     /**
+     * Membuat method public dengan variable String dan diberi nama getNik()
+     *
+     * @return nik
+     */
+    public String getNik() {
+        //Pengembalian nik kepada method getNik()
+        return nik;
+    }
+
+    /**
+     * Membuat method public dengan variable void dan diberi nama setNik dengan
+     * parameter String nik
+     *
+     * @param nik String
+     */
+    public void setNik(String nik) {
+        //nik dari variabel global sama dengan nik dari variabel lokal
+        this.nik = nik;
+    }
+
+    /**
      * Membuat method public dengan variable int dan diberi nama
      * getTanggalLahir()
      *
@@ -155,7 +177,7 @@ public class Pasien {
      * Exception
      *
      * @param tanggalLahir int
-     * 
+     *
      */
     public void setTanggalLahir(int tanggalLahir) {
         //Membandingkan jika tanggalLahir lebih dari 0 maka memasuki perbandingan
@@ -228,30 +250,30 @@ public class Pasien {
 
     /**
      * Digunakan untuk menampung seluruh Pasien yang baru mendaftar dengan
-     * menambahnya di ArrayList daftarPasien yang berisi pasien
+ menambahnya di ArrayList daftarPasienKlinik yang berisi pasien
      *
      * @param pasien Pasien
      */
     public static void tambahPasienBaru(Pasien pasien) {
-        daftarPasien.add(pasien);
+        daftarPasienKlinik.add(pasien);
     }
 
     /**
      * Digunakan untuk mencari daftar pasien melalui Nomor Rekam Medis, sehingga
-     * saat dimasuukan statment tersebut maka secara otomatis akan mencari
-     * daftarPasien yang memiliki NoRekamMedis yang sama lalu di return
-     * daftarPasien.get(i)
+ saat dimasuukan statment tersebut maka secara otomatis akan mencari
+ daftarPasienKlinik yang memiliki NoRekamMedis yang sama lalu di return
+ daftarPasienKlinik.get(i)
      *
      * @param norekam String
-     * @return daftarPasien.get(i)
+     * @return daftarPasienKlinik.get(i)
      */
     public static Pasien cariPasien(String norekam) {
-        for (int i = 0; i < daftarPasien.size(); i++) {
-            // jika norekam = daftarPasien yang memanggil fetNoRekamMedis maka
-            // daftarPasien.get(i) akan direturn ke method cariPasien
-            if (norekam == null ? daftarPasien.get(i).getNoRekamMedis() == null
-                    : norekam.equals(daftarPasien.get(i).getNoRekamMedis())) {
-                return daftarPasien.get(i);
+        for (int i = 0; i < daftarPasienKlinik.size(); i++) {
+            // jika norekam = daftarPasienKlinik yang memanggil fetNoRekamMedis maka
+            // daftarPasienKlinik.get(i) akan direturn ke method cariPasien
+            if (norekam == null ? daftarPasienKlinik.get(i).getNoRekamMedis() == null
+                    : norekam.equals(daftarPasienKlinik.get(i).getNoRekamMedis())) {
+                return daftarPasienKlinik.get(i);
             }
         }
         //Jika data tidak ditemukan maka akan direturn null

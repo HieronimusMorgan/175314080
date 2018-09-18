@@ -15,7 +15,7 @@ public class AntrianPasien {
 
     private int tanggalAntrian;
     private int bulanAntrian;
-    private static ArrayList<Pasien> daftarPasien = new ArrayList<>();
+    private static ArrayList<Pasien> daftarPasienAntri = new ArrayList<>();
 
     /**
      * Membuat Constructor kosong
@@ -83,22 +83,22 @@ public class AntrianPasien {
      * Membuat method public dengan variable ArrayList dan diberi nama
      * getDaftarPasien()
      *
-     * @return daftarPasien
+     * @return daftarPasienAntri
      */
-    public ArrayList<Pasien> getDaftarPasien() {
-        //Pengembalian daftarPasien kepada method pemanggil getDaftarPasien()
-        return daftarPasien;
+    public ArrayList<Pasien> getDaftarPasienAntri() {
+        //Pengembalian daftarPasienAntri kepada method pemanggil getDaftarPasien()
+        return daftarPasienAntri;
     }
 
     /**
-     * Mendaftar berfungsi untuk memasukkan data kepada array daftarPasien
+     * Mendaftar berfungsi untuk memasukkan data kepada array daftarPasienAntri
      * dimana data array tersebut bersifat dinamis
      *
      * @param pasien Pasien
      */
     public void Mendaftar(Pasien pasien) {
         //daftarPasien memasukkan data array dengan add pasien
-        daftarPasien.add(pasien);
+        daftarPasienAntri.add(pasien);
     }
 
     /**
@@ -106,11 +106,22 @@ public class AntrianPasien {
      * persatu melalui nomorPanggil
      *
      * @param nomorPanggil int
-     * @return daftarPasien.get(nomorPanggil)
+     * @return daftarPasienAntri.get(nomorPanggil)
      */
     public Pasien PanggilPasein(int nomorPanggil) {
-        //Pengembalian daftarPasien yang memanggi data ke nomorPanggil
-        return daftarPasien.get(nomorPanggil);
+        //Pengembalian daftarPasienAntri yang memanggi data ke nomorPanggil
+        return daftarPasienAntri.get(nomorPanggil);
     }
 
+    public Pasien cariPasien(String noRM, int tanggalAntrian, int bulan, int tahun) {
+        Pasien a = new Pasien();
+        for (int i = 0; i < daftarPasienAntri.size(); i++) {
+            if (noRM.equalsIgnoreCase(daftarPasienAntri.get(i).getNoRekamMedis()) || tanggalAntrian == daftarPasienAntri.get(i).getTanggalLahir()
+                    || bulan == daftarPasienAntri.get(i).getBulanLahir() || tahun == daftarPasienAntri.get(i).getTahunLahir()) {
+                return a;
+            }
+        }
+        return null;
+
+    }
 }
