@@ -15,7 +15,10 @@ public class AntrianPasien {
 
     private int tanggalAntrian;
     private int bulanAntrian;
-    private static ArrayList<Pasien> daftarPasienAntri = new ArrayList<>();
+    private int tahunAntrian;
+    private Klinik klinik;
+    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<>();
+    public static ArrayList<AntrianPasien> daftarAntrian = new ArrayList<AntrianPasien>();
 
     /**
      * Membuat Constructor kosong
@@ -80,6 +83,47 @@ public class AntrianPasien {
     }
 
     /**
+     * Membuat method public dengan variable int dan diberi nama
+     * getTahunAntrian()
+     *
+     * @return tahunAntrian
+     */
+    public int getTahunAntrian() {
+        return tahunAntrian;
+    }
+
+    /**
+     * Membuat method public dengan variable void dan diberi nama tahunAntrian
+     * dengan parameter int tahunAntrian
+     *
+     * @param tahunAntrian int
+     */
+    public void setTahunAntrian(int tahunAntrian) {
+        //tahunAntrian dari variabel global sama dengan tahunAntrian dari variabel lokal
+        this.tahunAntrian = tahunAntrian;
+    }
+
+    /**
+     * Membuat method public dengan variable int dan diberi nama getKlinik()
+     *
+     * @return klinik
+     */
+    public Klinik getKlinik() {
+        return klinik;
+    }
+
+    /**
+     * Membuat method public dengan variable void dan diberi nama setKlinik
+     * dengan parameter Klinik klinik
+     *
+     * @param klinik Klinik
+     */
+    public void setKlinik(Klinik klinik) {
+        //klinik dari variabel global sama dengan klinik dari variabel lokal
+        this.klinik = klinik;
+    }
+
+    /**
      * Membuat method public dengan variable ArrayList dan diberi nama
      * getDaftarPasien()
      *
@@ -113,15 +157,53 @@ public class AntrianPasien {
         return daftarPasienAntri.get(nomorPanggil);
     }
 
+    /**
+     *
+     * @param NoRM String
+     * @return antrian
+     */
+    public AntrianPasien cariPasien(String NoRM) {
+        AntrianPasien antrian = new AntrianPasien();
+        for (int i = 0; i < daftarAntrian.size(); i++) {
+            if (NoRM.equalsIgnoreCase(daftarAntrian.get(i).daftarPasienAntri.get(i).getNoRekamMedis())) {
+                return antrian;
+            }
+        }
+        return antrian;
+    }
+
+    /**
+     *
+     * @param noRM String
+     * @param tanggalAntrian int
+     * @param bulan int
+     * @param tahun int
+     * @return cari
+     */
     public Pasien cariPasien(String noRM, int tanggalAntrian, int bulan, int tahun) {
-        Pasien a = new Pasien();
+        Pasien cari = new Pasien();
         for (int i = 0; i < daftarPasienAntri.size(); i++) {
             if (noRM.equalsIgnoreCase(daftarPasienAntri.get(i).getNoRekamMedis()) || tanggalAntrian == daftarPasienAntri.get(i).getTanggalLahir()
                     || bulan == daftarPasienAntri.get(i).getBulanLahir() || tahun == daftarPasienAntri.get(i).getTahunLahir()) {
-                return a;
+                return cari;
             }
         }
         return null;
+    }
 
+    /**
+     *
+     * @param tanggal int
+     * @param bulan int
+     * @param tahun int
+     * @param klinik Klinik
+     */
+    public void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
+        AntrianPasien a = new AntrianPasien();
+        a.setTanggalAntrian(tanggal);
+        a.setBulanAntrian(bulan);
+        a.setTahunAntrian(tahun);
+        a.setKlinik(klinik);
+        daftarAntrian.add(a);
     }
 }

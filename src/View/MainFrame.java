@@ -9,7 +9,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-
 /**
  *
  * @author asus
@@ -37,37 +36,40 @@ public class MainFrame extends JFrame implements ActionListener {
         exitMenuItem = new JMenuItem("Exit");
         TambahPasien = new JMenuItem("Tambah Pasien Baru");
         TambahAntrian = new JMenuItem("Tambah Antrian");
-        
-        
+
         fileMenu.add(TambahPasien);
         fileMenu.add(TambahAntrian);
         fileMenu.add(exitMenuItem);
         MenuBar.add(fileMenu);
 
-        exitMenuItem.addActionListener(this);
-        TambahPasien.addActionListener(this);
-        TambahAntrian.addActionListener(this);
+        exitMenuItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        TambahPasien.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TambahPasienBaruDialog tampil = new TambahPasienBaruDialog();
+                tampil.setSize(400, 500);
+                tampil.setVisible(true);
+            }
+        });
+        TambahAntrian.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TambahAntrianDialog tampil = new TambahAntrianDialog();
+                tampil.setSize(400, 500);
+                tampil.setVisible(true);
+            }
+        });
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // Jika klik exitMenuItem maka akan keluar
-        if (e.getSource() == exitMenuItem) {
-            System.exit(0);
-        }
-        // Jika klik TambahPasien maka akan menampilkan tampilan TambahPasienDialog
-        if (e.getSource() == TambahPasien) {
-            TambahPasienBaruDialog tampil = new TambahPasienBaruDialog();
-            tampil.setSize(400, 500);
-            tampil.setVisible(true);
-        }
-        // Jika klik TambahAntrian maka akan menampilkan tampilan TambahAntrianDialog
-        if (e.getSource() == TambahAntrian) {
-            TambahAntrianDialog tampil = new TambahAntrianDialog();
-            tampil.setSize(400, 500);
-            tampil.setVisible(true);
-        }
+        
     }
 
 }
