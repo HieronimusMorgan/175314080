@@ -89,6 +89,7 @@ public class AntrianPasien {
      * @return tahunAntrian
      */
     public int getTahunAntrian() {
+        //Pengembalian tahunAntrian kepada method pemanggil getTahunAntrian()
         return tahunAntrian;
     }
 
@@ -109,6 +110,7 @@ public class AntrianPasien {
      * @return klinik
      */
     public Klinik getKlinik() {
+        //Pengembalian klinik kepada method pemanggil getKlinik()
         return klinik;
     }
 
