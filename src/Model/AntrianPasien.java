@@ -6,6 +6,7 @@
 package Model;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,7 +18,7 @@ public class AntrianPasien {
     private int bulanAntrian;
     private int tahunAntrian;
     private Klinik klinik;
-    private ArrayList<Pasien> daftarPasienAntri = new ArrayList<>();
+    private static ArrayList<Pasien> daftarPasienAntri = new ArrayList<>();
     public static ArrayList<AntrianPasien> daftarAntrian = new ArrayList<AntrianPasien>();
 
     /**
@@ -161,36 +162,24 @@ public class AntrianPasien {
 
     /**
      *
-     * @param NoRM String
-     * @return antrian
-     */
-    public AntrianPasien cariPasien(String NoRM) {
-        AntrianPasien antrian = new AntrianPasien();
-        for (int i = 0; i < daftarAntrian.size(); i++) {
-            if (NoRM.equalsIgnoreCase(daftarAntrian.get(i).daftarPasienAntri.get(i).getNoRekamMedis())) {
-                return antrian;
-            }
-        }
-        return antrian;
-    }
-
-    /**
-     *
-     * @param noRM String
-     * @param tanggalAntrian int
+     * @param tanggal int
      * @param bulan int
      * @param tahun int
-     * @return cari
+     * @param klinik Klinik
+     * @return i
      */
-    public Pasien cariPasien(String noRM, int tanggalAntrian, int bulan, int tahun) {
-        Pasien cari = new Pasien();
+    public static int cariPasien(int tanggal, int bulan, int tahun, Klinik klinik) {
+        // Pasien cari = new Pasien();
         for (int i = 0; i < daftarPasienAntri.size(); i++) {
-            if (noRM.equalsIgnoreCase(daftarPasienAntri.get(i).getNoRekamMedis()) || tanggalAntrian == daftarPasienAntri.get(i).getTanggalLahir()
-                    || bulan == daftarPasienAntri.get(i).getBulanLahir() || tahun == daftarPasienAntri.get(i).getTahunLahir()) {
-                return cari;
+            if (tanggal == daftarPasienAntri.get(i).getTanggalLahir()
+                    && bulan == daftarPasienAntri.get(i).getBulanLahir() 
+                    && tahun == daftarPasienAntri.get(i).getTahunLahir()
+                    && daftarAntrian.get(i).getKlinik().getIdKlinik().equalsIgnoreCase(klinik.getIdKlinik())
+                    && daftarAntrian.get(i).getKlinik().getNama().equalsIgnoreCase(klinik.getNama())) {
+                return i;
             }
         }
-        return null;
+        return -1;
     }
 
     /**
@@ -201,11 +190,16 @@ public class AntrianPasien {
      * @param klinik Klinik
      */
     public void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
-        AntrianPasien a = new AntrianPasien();
-        a.setTanggalAntrian(tanggal);
-        a.setBulanAntrian(bulan);
-        a.setTahunAntrian(tahun);
-        a.setKlinik(klinik);
-        daftarAntrian.add(a);
+        AntrianPasien antrian = new AntrianPasien();
+        antrian.setTanggalAntrian(tanggal);
+        antrian.setBulanAntrian(bulan);
+        antrian.setTahunAntrian(tahun);
+        antrian.setKlinik(klinik);
+        if (cariPasien(tanggal, bulan, tahun, klinik) >= 0) {
+            daftarAntrian.add(antrian);
+        } else {
+            JOptionPane.showMessageDialog(null, "Antrian Sudah Ada !");
+        }
+
     }
 }
