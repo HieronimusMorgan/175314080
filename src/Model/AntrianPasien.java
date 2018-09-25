@@ -149,13 +149,15 @@ public class AntrianPasien {
     }
 
     /**
-     * Untuk mendaftarkan pasien
+     * Untuk mendaftarkan pasien dengan ketentuan jika hasil dari cari antrian
+     * lebih besar sama dengan 0 maka akan melakukan proses daftarAntrian dan
+     * mendaftarkan pasien jika tidak membuat antrian dan mmendaftarkan pasien
      *
-     * @param pasien
-     * @param tanggal
-     * @param bulan
-     * @param tahun
-     * @param klinik
+     * @param pasien Pasien
+     * @param tanggal int
+     * @param bulan int
+     * @param tahun int
+     * @param klinik Klinik
      */
     public static void daftarPasien(Pasien pasien, int tanggal, int bulan, int tahun, Klinik klinik) {
         if (cariAntrian(tanggal, bulan, tahun, klinik) >= 0) {
@@ -179,7 +181,9 @@ public class AntrianPasien {
     }
 
     /**
-     * Mencari Antrian pada daftar antrian dan menambahkan antrian daftarAntrian
+     * Mendaftar antrian pada array daftarAntrian jika hasil dari cari antrian
+     * sama dengan -1 jika tidak maka akan menampilkan message "Antrian Sudah
+     * Ada!"
      *
      * @param tanggal int
      * @param bulan int
@@ -200,7 +204,8 @@ public class AntrianPasien {
     }
 
     /**
-     * Mencari daftar antrian pada list daftar pasien
+     * Mencari daftar antrian pada array daftar pasien antri dengan mencari
+     * index pada array
      *
      * @param tanggal int
      * @param bulan int
