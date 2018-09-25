@@ -45,11 +45,10 @@ public class TestAntrianPasien {
         Pasien pasien2 = new Pasien();
         pasien2.setNama("adi");
         pasien2.setAlamat("klaten");
-        Klinik a = new Klinik("001", "anak");
         int indeksAntrian = AntrianPasien.cariAntrian(21,
                 9,
                 2018,
-                a);
+                new Klinik("001", "anak"));
         System.out.println(indeksAntrian);
         if (indeksAntrian >= 0) {
             AntrianPasien.daftarAntrian.get(indeksAntrian).Mendaftar(pasien1);
