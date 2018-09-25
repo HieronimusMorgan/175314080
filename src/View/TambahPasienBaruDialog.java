@@ -175,6 +175,7 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveButton) {
             Pasien daftar = new Pasien();
+            
             daftar.setNama(namaText.getText());
             daftar.setAlamat(alamatText.getText());
             daftar.setNoRekamMedis(noRekamText.getText());
