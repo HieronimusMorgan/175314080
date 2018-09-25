@@ -105,8 +105,9 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
                 alamatText.setText(Pasien.cariPasien(noRekamText.getText()).getAlamat());
             } else {
                 JOptionPane.showMessageDialog(null, "Nomor Rekam Medis : " + noRekamText.getText() + " Tidak Tersedia");
-            }
+            }           
         }
+        
     }
 
 }

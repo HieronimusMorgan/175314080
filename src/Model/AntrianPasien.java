@@ -149,18 +149,58 @@ public class AntrianPasien {
     }
 
     /**
-     * PanggilPasien berfungsi memanggi pasien dimana Pasien dipanggil satu
-     * persatu melalui nomorPanggil
+     * Untuk mendaftarkan pasien
+     *
+     * @param pasien
+     * @param tanggal
+     * @param bulan
+     * @param tahun
+     * @param klinik
+     */
+    public static void daftarPasien(Pasien pasien, int tanggal, int bulan, int tahun, Klinik klinik) {
+        if (cariAntrian(tanggal, bulan, tahun, klinik) >= 0) {
+            daftarAntrian.get(cariAntrian(tanggal, bulan, tahun, klinik)).Mendaftar(pasien);
+        } else {
+            buatAntrian(tanggal, bulan, tahun, klinik);
+            daftarAntrian.get(cariAntrian(tanggal, bulan, tahun, klinik)).Mendaftar(pasien);
+        }
+
+    }
+
+    /**
+     * Mencari pasien dalam daftarPasien
      *
      * @param nomorPanggil int
      * @return daftarPasienAntri.get(nomorPanggil)
      */
-    public Pasien PanggilPasein(int nomorPanggil) {
+    public static Pasien CariPasien(int nomorPanggil) {
         //Pengembalian daftarPasienAntri yang memanggi data ke nomorPanggil
         return daftarPasienAntri.get(nomorPanggil);
     }
 
     /**
+     * Mencari Antrian pada daftar antrian dan menambahkan antrian daftarAntrian
+     *
+     * @param tanggal int
+     * @param bulan int
+     * @param tahun int
+     * @param klinik Klinik
+     */
+    public static void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
+        AntrianPasien antrian = new AntrianPasien();
+        antrian.setTanggalAntrian(tanggal);
+        antrian.setBulanAntrian(bulan);
+        antrian.setTahunAntrian(tahun);
+        antrian.setKlinik(klinik);
+        if (cariAntrian(tanggal, bulan, tahun, klinik) == -1) {
+            daftarAntrian.add(antrian);
+        } else {
+            JOptionPane.showMessageDialog(null, "Antrian Sudah Ada !");
+        }
+    }
+
+    /**
+     * Mencari daftar antrian pada list daftar pasien
      *
      * @param tanggal int
      * @param bulan int
@@ -168,11 +208,11 @@ public class AntrianPasien {
      * @param klinik Klinik
      * @return i
      */
-    public static int cariPasien(int tanggal, int bulan, int tahun, Klinik klinik) {
+    public static int cariAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
         // Pasien cari = new Pasien();
         for (int i = 0; i < daftarPasienAntri.size(); i++) {
             if (tanggal == daftarPasienAntri.get(i).getTanggalLahir()
-                    && bulan == daftarPasienAntri.get(i).getBulanLahir() 
+                    && bulan == daftarPasienAntri.get(i).getBulanLahir()
                     && tahun == daftarPasienAntri.get(i).getTahunLahir()
                     && daftarAntrian.get(i).getKlinik().getIdKlinik().equalsIgnoreCase(klinik.getIdKlinik())
                     && daftarAntrian.get(i).getKlinik().getNama().equalsIgnoreCase(klinik.getNama())) {
@@ -183,23 +223,16 @@ public class AntrianPasien {
     }
 
     /**
+     * Mengubah tipe data sebuah variabel menjadi String
      *
-     * @param tanggal int
-     * @param bulan int
-     * @param tahun int
-     * @param klinik Klinik
+     * @return String.valueOf(tahunAntrian) + String.valueOf(bulanAntrian) +
+     * String.valueOf(tanggalAntrian) + klinik.getIdKlinik() + klinik.getNama();
      */
-    public void buatAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
-        AntrianPasien antrian = new AntrianPasien();
-        antrian.setTanggalAntrian(tanggal);
-        antrian.setBulanAntrian(bulan);
-        antrian.setTahunAntrian(tahun);
-        antrian.setKlinik(klinik);
-        if (cariPasien(tanggal, bulan, tahun, klinik) >= 0) {
-            daftarAntrian.add(antrian);
-        } else {
-            JOptionPane.showMessageDialog(null, "Antrian Sudah Ada !");
-        }
-
+    @Override
+    public String toString() {
+        return String.valueOf(tahunAntrian)
+                + String.valueOf(bulanAntrian)
+                + String.valueOf(tanggalAntrian)
+                + klinik.getIdKlinik() + klinik.getNama();
     }
 }
