@@ -42,12 +42,12 @@ public class Pasien {
      * @param bulanLahir int
      * @param tahunLahir int
      */
-    public Pasien(String nomorrekammedis, String nama, String alamat, 
+    public Pasien(String nomorrekammedis, String nama, String alamat,
             int tanggalLahir, int bulanLahir, int tahunLahir) {
         //variabel global sama dengan dari variabel lokal
         this.noRekamMedis = nomorrekammedis;
         this.nama = nama;
-        this.alamat = alamat;        
+        this.alamat = alamat;
         this.tanggalLahir = tanggalLahir;
         this.bulanLahir = bulanLahir;
         this.tahunLahir = tahunLahir;
@@ -250,7 +250,7 @@ public class Pasien {
 
     /**
      * Digunakan untuk menampung seluruh Pasien yang baru mendaftar dengan
- menambahnya di ArrayList daftarPasienKlinik yang berisi pasien
+     * menambahnya di ArrayList daftarPasienKlinik yang berisi pasien
      *
      * @param pasien Pasien
      */
@@ -260,9 +260,9 @@ public class Pasien {
 
     /**
      * Digunakan untuk mencari daftar pasien melalui Nomor Rekam Medis, sehingga
- saat dimasuukan statment tersebut maka secara otomatis akan mencari
- daftarPasienKlinik yang memiliki NoRekamMedis yang sama lalu di return
- daftarPasienKlinik.get(i)
+     * saat dimasuukan statment tersebut maka secara otomatis akan mencari
+     * daftarPasienKlinik yang memiliki NoRekamMedis yang sama lalu di return
+     * daftarPasienKlinik.get(i)
      *
      * @param norekam String
      * @return daftarPasienKlinik.get(i)

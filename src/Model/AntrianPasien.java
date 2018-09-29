@@ -215,10 +215,10 @@ public class AntrianPasien {
      */
     public static int cariAntrian(int tanggal, int bulan, int tahun, Klinik klinik) {
         // Pasien cari = new Pasien();
-        for (int i = 0; i < daftarPasienAntri.size(); i++) {
-            if (tanggal == daftarPasienAntri.get(i).getTanggalLahir()
-                    && bulan == daftarPasienAntri.get(i).getBulanLahir()
-                    && tahun == daftarPasienAntri.get(i).getTahunLahir()
+        for (int i = 0; i < daftarAntrian.size(); i++) {
+            if (tanggal == daftarAntrian.get(i).getTanggalAntrian()
+                    && bulan == daftarAntrian.get(i).getBulanAntrian()
+                    && tahun == daftarAntrian.get(i).getTahunAntrian()
                     && daftarAntrian.get(i).getKlinik().getIdKlinik().equalsIgnoreCase(klinik.getIdKlinik())
                     && daftarAntrian.get(i).getKlinik().getNama().equalsIgnoreCase(klinik.getNama())) {
                 return i;

@@ -45,20 +45,20 @@ public class TestAntrianPasien {
         Pasien pasien2 = new Pasien();
         pasien2.setNama("adi");
         pasien2.setAlamat("klaten");
-        int indeksAntrian = AntrianPasien.cariAntrian(21,
-                9,
-                2018,
-                new Klinik("001", "anak"));
-        System.out.println(indeksAntrian);
+
+        int indeksAntrian = AntrianPasien.cariAntrian(21, 9, 2018, new Klinik("001", "anak"));
+        System.out.println(AntrianPasien.daftarAntrian.size());
+
         if (indeksAntrian >= 0) {
             AntrianPasien.daftarAntrian.get(indeksAntrian).Mendaftar(pasien1);
             AntrianPasien.daftarAntrian.get(indeksAntrian).Mendaftar(pasien2);
         }
+        System.out.println("");
         for (int i = 0; i < AntrianPasien.daftarAntrian.size(); i++) {
             if (indeksAntrian >= 0) {
                 System.out.println(AntrianPasien.daftarAntrian.get(indeksAntrian).getDaftarPasienAntri().get(i).getNama());
             }
-
         }
     }
+
 }
