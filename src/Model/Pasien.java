@@ -357,6 +357,7 @@ public class Pasien {
                     temp = new Pasien();
                 }
             }
+            fis.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
