@@ -21,13 +21,16 @@ public class TestStream {
         Pasien test1 = new Pasien();
         test1.setNoRekamMedis("002");
         test1.setNama("adi");
-        test1.setAlamat("klaten");
+        test1.setAlamat("banyumas");
         
-        System.out.println(test.toString());
-        System.out.println(test1.toString());
-        
+        Pasien test2 = new Pasien();
+        test2.setNoRekamMedis("003");
+        test2.setNama("morgan");
+        test2.setAlamat("purwokerto"); 
+       
         Pasien.tambahPasienBaru(test);
         Pasien.tambahPasienBaru(test1);
+        Pasien.tambahPasienBaru(test2);
         
         Pasien.simpanDaftarPasien(new File("daftar.txt"));
     }

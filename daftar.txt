@@ -1,0 +1,3 @@
+001	puspa	klaten
+002	adi	banyumas
+003	morgan	purwokerto

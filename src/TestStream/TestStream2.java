@@ -19,10 +19,9 @@ public class TestStream2 {
     public static void main(String[] args) throws FileNotFoundException, IOException {
         Pasien.bacaDaftarPasien(new File("daftar.txt"));
         for (int i = 0; i < Pasien.getDaftarPasien().size(); i++) {
-            System.out.println(Pasien.getDaftarPasien().get(i).getNama());
+            System.out.println(Pasien.getDaftarPasien().get(i).toString());
         }
         
-        FileOutputStream fos = new FileOutputStream(new File("daftar.txt"));
-        fos.close();
+       
     }
 }
