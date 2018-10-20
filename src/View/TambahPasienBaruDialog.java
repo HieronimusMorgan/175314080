@@ -174,12 +174,10 @@ public class TambahPasienBaruDialog extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == saveButton) {
-            Pasien daftar = new Pasien();
-            
+            Pasien daftar = new Pasien();            
             daftar.setNama(namaText.getText());
             daftar.setAlamat(alamatText.getText());
             daftar.setNoRekamMedis(noRekamText.getText());
-//            String tanggalan = tanggalComboBox.getSelectedItem().toString();
             daftar.setTanggalLahir(Integer.valueOf(tanggalComboBox.getSelectedItem().toString()));
             daftar.setBulanLahir(Integer.valueOf(bulanComboBox.getSelectedItem().toString()));
             daftar.setTahunLahir(Integer.valueOf(tahunComboBox.getSelectedItem().toString()));

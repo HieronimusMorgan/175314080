@@ -5,9 +5,16 @@
  */
 package Model;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,6 +31,7 @@ public class Pasien {
     private int bulanLahir;
     private int tahunLahir;
     public static ArrayList<Pasien> daftarPasienKlinik = new ArrayList<Pasien>();
+    public static ArrayList<Pasien> daftarPasien = new ArrayList<Pasien>();
 
     /**
      * Membuat Constructor kosong dengan nama Pasien
@@ -255,7 +263,15 @@ public class Pasien {
      * @param pasien Pasien
      */
     public static void tambahPasienBaru(Pasien pasien) {
-        daftarPasienKlinik.add(pasien);
+        daftarPasien.add(pasien);
+    }
+
+    public static ArrayList<Pasien> getDaftarPasien() {
+        return daftarPasien;
+    }
+
+    public static void setDaftarPasien(ArrayList<Pasien> daftarPasien) {
+        Pasien.daftarPasien = daftarPasien;
     }
 
     /**
@@ -280,4 +296,82 @@ public class Pasien {
         return null;
     }
 
+    public static void simpanDaftarPasien(File file) {
+        try {
+            FileOutputStream fos = new FileOutputStream(file);
+            for (int i = 0; i < daftarPasien.size(); i++) {
+                String data = daftarPasien.get(i).toString();
+                fos.write(data.getBytes());
+            }
+            fos.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void bacaDaftarPasien(File file) {
+        FileInputStream fis = null;
+        try {
+
+            String hasilBaca = "";
+            fis = new FileInputStream(file);
+            int dataInt;
+            boolean noRM = false;
+            boolean nama = false;
+            boolean alamat = false;
+            String n;
+            String RM;
+            String ala;
+            Pasien temp = new Pasien();
+            while ((dataInt = fis.read()) != -1) {
+                if ((char) dataInt != '\n') {
+                    if ((char) dataInt != '\t' && noRM == false && nama == false && alamat == false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && noRM == false && nama == false && alamat == false) {
+                        noRM = true;
+                        temp.setNoRekamMedis(hasilBaca);
+                        hasilBaca = "";
+                    } else if ((char) dataInt != '\t' && noRM == true && nama == false && alamat == false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && noRM == true && nama == false && alamat == false) {
+                        nama = true;
+                        temp.setNama(hasilBaca);
+                        hasilBaca = "";
+                    } else if ((char) dataInt != '\t' && noRM == true && nama == true && alamat == false) {
+                        hasilBaca = hasilBaca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && noRM == true && nama == true && alamat == false) {
+                        alamat = true;
+                        temp.setAlamat(hasilBaca);
+                        hasilBaca = "";
+                    }
+                } else {
+                    alamat = true;
+                    temp.setAlamat(hasilBaca);
+                    hasilBaca = "";
+                    tambahPasienBaru(temp);
+                    nama = false;
+                    noRM = false;
+                    alamat = false;
+                    temp = new Pasien();
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fis.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Pasien.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
+    @Override
+    public String toString() {
+        return noRekamMedis + "\t" + nama + "\t" + alamat + "\n";
+    }
 }

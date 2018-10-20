@@ -37,7 +37,7 @@ public class TambahAntrianDialog extends JDialog implements ActionListener {
     public void init() {
 
         this.setLayout(null);
-        //Membuat label dengan nama "Form Tambah Pasien"
+        //Membuat label dengan nama "Form Tambah Antrian"
         judulLabel = new JLabel("Form Tambah Antrian");
         // Ukuran x = 140, y = 10 dan panjang = 200 tinggi 20
         judulLabel.setBounds(140, 10, 200, 20);
