@@ -21,7 +21,7 @@ public class TestStream {
         Pasien test1 = new Pasien();
         test1.setNoRekamMedis("002");
         test1.setNama("adi");
-        test1.setAlamat("banyumas");
+        test1.setAlamat("klaten");
         
         Pasien test2 = new Pasien();
         test2.setNoRekamMedis("003");
