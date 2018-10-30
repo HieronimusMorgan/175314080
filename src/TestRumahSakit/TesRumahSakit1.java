@@ -28,7 +28,7 @@ public class TesRumahSakit1 {
         rs.tambahPasienBaru(pasien1);
         rs.tambahPasienBaru(pasien2);
         
-        rs.simpanObjekRumahSakit(new File("rsku.txt"));
+        rs.simpanObjekRumahSakit(new File("rsku.dat"));
         
     }
 }
